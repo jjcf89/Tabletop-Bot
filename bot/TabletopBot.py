@@ -420,10 +420,10 @@ class TabletopBot(discord.Client):
         return
 
     async def start_vote(self, message, command):
-        if message.author.id != self.config["owner_id"]:
-            message_to_send = "You don't have permission to start_vote"
-            await self.send_message_safe(self.bound_channel, message_to_send, 10)
-            return
+        #if message.author.id != self.config["owner_id"]:
+        #    message_to_send = "You don't have permission to start_vote"
+        #    await self.send_message_safe(self.bound_channel, message_to_send, 10)
+        #    return
 
         poll_active = self.session.query(GamePoll.active).first()
         if poll_active:
@@ -511,19 +511,19 @@ class TabletopBot(discord.Client):
         await self.finalize_vote()
 
     async def end_vote(self, message, command):
-        if message.author.id != self.config["owner_id"]:
-            message_to_send = "You don't have permission to delete_all"
-            await self.send_message_safe(self.bound_channel, message_to_send, 10)
-            return
+        #if message.author.id != self.config["owner_id"]:
+        #    message_to_send = "You don't have permission to delete_all"
+        #    await self.send_message_safe(self.bound_channel, message_to_send, 10)
+        #    return
 
         await self.finalize_vote()
 
     async def create_event(self, message, command):
-        if message.author.id != self.config["owner_id"]:
-            print("User Id: {}".format(message.author.id))
-            message_to_send = "You don't have permission to delete_all"
-            await self.send_message_safe(self.bound_channel, message_to_send, 10)
-            return
+        #if message.author.id != self.config["owner_id"]:
+        #    print("User Id: {}".format(message.author.id))
+        #    message_to_send = "You don't have permission to delete_all"
+        #    await self.send_message_safe(self.bound_channel, message_to_send, 10)
+        #    return
         try:
             date_string = command[1]
             time_string = command[2]
@@ -574,10 +574,10 @@ class TabletopBot(discord.Client):
         return
 
     async def cancel_event(self, message, command):
-        if message.author.id != self.config["owner_id"]:
-            message_to_send = "You don't have permission to cancel_event"
-            await self.send_message_safe(self.bound_channel, message_to_send, 10)
-            return
+        #if message.author.id != self.config["owner_id"]:
+        #    message_to_send = "You don't have permission to cancel_event"
+        #    await self.send_message_safe(self.bound_channel, message_to_send, 10)
+        #    return
         try:
             event_id = command[1]
         except IndexError:
@@ -606,10 +606,10 @@ class TabletopBot(discord.Client):
         return
 
     async def clear_suggestions(self, message, command):
-        if message.author.id != self.config["owner_id"]:
-            message_to_send = "You don't have permission to delete_all"
-            await self.send_message_safe(self.bound_channel, message_to_send, 10)
-            return
+        #if message.author.id != self.config["owner_id"]:
+        #    message_to_send = "You don't have permission to delete_all"
+        #    await self.send_message_safe(self.bound_channel, message_to_send, 10)
+        #    return
         for suggestion in self.session.query(Suggestion).all():
             self.session.delete(suggestion)
         self.session.commit()
@@ -618,10 +618,10 @@ class TabletopBot(discord.Client):
         return
 
     async def clear_messages(self, message, command):
-        if message.author.id != self.config["owner_id"]:
-            message_to_send = "You don't have permission to delete_all"
-            await self.send_message_safe(self.bound_channel, message_to_send, 10)
-            return
+        #if message.author.id != self.config["owner_id"]:
+        #    message_to_send = "You don't have permission to delete_all"
+        #    await self.send_message_safe(self.bound_channel, message_to_send, 10)
+        #    return
 
         def is_pinned(m):
             for this_pinned_message in pinned_messages:
