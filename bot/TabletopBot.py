@@ -2,6 +2,7 @@ import asyncio
 import configparser
 import html
 import re
+import os
 from datetime import datetime, timedelta
 
 import discord
@@ -25,7 +26,7 @@ class TabletopBot(discord.Client):
     def __init__(self):
         self.session = Session()
 
-        config_file = "config\\options.ini"
+        config_file = os.path.join("config", "options.ini")
         self.config = self.open_config(config_file)
         self.bound_channel = None
 
