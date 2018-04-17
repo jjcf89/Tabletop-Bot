@@ -519,6 +519,7 @@ class TabletopBot(discord.Client):
 
     async def create_event(self, message, command):
         if message.author.id != self.config["owner_id"]:
+            print("User Id: {}".format(message.author.id))
             message_to_send = "You don't have permission to delete_all"
             await self.send_message_safe(self.bound_channel, message_to_send, 10)
             return
