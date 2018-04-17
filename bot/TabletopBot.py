@@ -828,6 +828,7 @@ class TabletopBot(discord.Client):
         return game_info
 
     async def send_message_safe(self, channel, output_string, timeout, delete=True):
+        print("tabletop-bot: {}".format(output_string))
         response_message = await self.send_message(channel, output_string)
         if delete:
             await asyncio.sleep(timeout)
