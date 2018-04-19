@@ -740,17 +740,17 @@ class TabletopBot(discord.Client):
         return member
 
     async def output_suggestion_game_info(self, game_info):
-        if len(game_info["description"]) > 2044:
-            output_description = game_info["description"][0:2043] + "..."
-        else:
-            output_description = game_info["description"]
+        #if len(game_info["description"]) > 2044:
+        #    output_description = game_info["description"][0:2043] + "..."
+        #else:
+        #    output_description = game_info["description"]
 
         embed = discord.Embed(title=game_info["game_title"], type="rich", url=game_info["url"])
         embed.set_image(url=game_info["image_url"])
         embed.add_field(name="Playtime", value=game_info["playtime"])
         embed.add_field(name="Recommended", value=game_info["recommended"])
         embed.add_field(name="Best with", value=game_info["best"] + " players")
-        embed.set_footer(text=output_description)
+        #embed.set_footer(text=output_description)
 
         await self.send_message(self.bound_channel, content=None, embed=embed)
 
