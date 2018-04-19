@@ -746,7 +746,7 @@ class TabletopBot(discord.Client):
         #    output_description = game_info["description"]
 
         embed = discord.Embed(title=game_info["game_title"], type="rich", url=game_info["url"])
-        embed.set_image(url=game_info["image_url"])
+        embed.set_thumbnail(url=game_info["image_url"])
         embed.add_field(name="Playtime", value=game_info["playtime"])
         embed.add_field(name="Recommended", value=game_info["recommended"])
         embed.add_field(name="Best with", value=game_info["best"] + " players")
