@@ -232,7 +232,7 @@ class TabletopBot(discord.Client):
             "[suggestion] can be a game title to search, a BoardGameGeek game url, " +
             "or the numerical game ID from the url\n",
 
-            "!show",
+            "!suggestions",
             "Display all the board games suggested so far\n",
 
             "!vote",
